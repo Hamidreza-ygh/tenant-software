@@ -1,0 +1,62 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-app
+spec:
+  selector:
+    matchLabels:
+      app: todo-app
+  template:
+    metadata:
+      labels:
+        app: todo-app
+        role: business-logic
+    spec:
+      containers:
+        - name: todo-app
+          image: ghcr.io/hamidreza-ygh8/tenant-software/todo-app:latest #x-release-please-version
+          # resources:
+          #   requests:
+          #     memory: "32Mi"
+          #     cpu: "100m"
+          #   limits:
+          #     memory: "128Mi"
+          #     cpu: "500m"
+          env:
+            - name: DB_HOST
+              value: "tenant-1-exoscale-281607c5-270f-47aa-b92e-042fb1218654.j.aivencloud.com"
+            - name: DB_PORT
+              value: "21699"
+            - name: DB_USER
+              value: "tenant-1"
+            - name: DB_PASS
+              value: "AVNS_UzVmkirWWB6rs-e9W4N"
+            - name: DB_NAME
+              value: "defaultdb"
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+          # livenessProbe:
+          #   httpGet:
+          #     path: /healthz
+          #     port: http
+          # readinessProbe:
+          #   httpGet:
+          #     path: /readyz
+          #     port: http
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: todo-app
+spec:
+  selector:
+    app: todo-app
+  ports:
+    - name: http
+      port: 8000
+      protocol: TCP
+  type: ClusterIP
