@@ -23,6 +23,18 @@ spec:
           #   limits:
           #     memory: "128Mi"
           #     cpu: "500m"
+          env:
+            - name: DB_HOST
+              value: "tenant-1-exoscale-281607c5-270f-47aa-b92e-042fb1218654.j.aivencloud.com"
+            - name: DB_PORT
+              value: 21699
+            - name: DB_USER
+              value: "tenant-1"
+            - name: DB_PASS
+              value: "AVNS_UzVmkirWWB6rs-e9W4N"
+            - name: DB_NAME
+              value: "defaultdb"
+
           ports:
             - name: http
               containerPort: 8000
