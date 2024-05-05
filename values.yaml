@@ -1,0 +1,27 @@
+# Default values for tenant-todo-app.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+enviroment:
+  # "tenant-1-exoscale-281607c5-270f-47aa-b92e-042fb1218654.j.aivencloud.com"
+  dbHost: ""
+  # "21699"
+  dbPort: ""
+  # "tenant-1"
+  dbUser: ""
+  # "AVNS_UzVmkirWWB6rs-e9W4N"
+  dbPass: ""
+  # "defaultdb"
+  dbName: ""
+
+# service:
+#   type: ClusterIP
+#   port: 80
+
+
