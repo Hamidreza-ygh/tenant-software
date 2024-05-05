@@ -3,6 +3,16 @@ entries:
   tenant-todo-app:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-05-05T18:56:00.709790796Z"
+    description: A Helm chart for Kubernetes
+    digest: 77c52cb19a4962d95bbc4100b22fbe9112bb29808eff113ab76844b3bea616f6
+    name: tenant-todo-app
+    type: application
+    urls:
+    - https://github.com/hamidreza-ygh/tenant-software/releases/download/tenant-todo-app-0.3.0/tenant-todo-app-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-05-05T18:23:58.453326904Z"
     description: A Helm chart for Kubernetes
     digest: e5b08109100e6edd928cf783fcb51cd8cdde87d0ee82d950b455c0de71f84f65
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://github.com/hamidreza-ygh/tenant-software/releases/download/tenant-todo-app-0.1.0/tenant-todo-app-0.1.0.tgz
     version: 0.1.0
-generated: "2024-05-05T18:23:58.453373812Z"
+generated: "2024-05-05T18:56:00.709810312Z"
