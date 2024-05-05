@@ -25,15 +25,15 @@ spec:
           #     cpu: "500m"
           env:
             - name: DB_HOST
-              value: "{{ .Values.environment.dbHost }}"
+              value: "{{ .Values.envDbHost }}"
             - name: DB_PORT
-              value: "{{ .Values.environment.dbPort }}"
+              value: "{{ .Values.envDPort }}"
             - name: DB_USER
-              value: "{{ .Values.environment.dbUser }}"
+              value: "{{ .Values.envDbUser }}"
             - name: DB_PASS
-              value: "{{ .Values.environment.dbPass }}"
+              value: "{{ .Values.envDbPass }}"
             - name: DB_NAME
-              value: "{{ .Values.environment.dbName }}"
+              value: "{{ .Values.envDbName }}"
           ports:
             - name: http
               containerPort: 8000

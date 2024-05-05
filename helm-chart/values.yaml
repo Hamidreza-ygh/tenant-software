@@ -8,17 +8,17 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
-enviroment:
-  # "tenant-1-exoscale-281607c5-270f-47aa-b92e-042fb1218654.j.aivencloud.com"
-  dbHost: ""
-  # "21699"
-  dbPort: ""
-  # "tenant-1"
-  dbUser: ""
-  # "AVNS_UzVmkirWWB6rs-e9W4N"
-  dbPass: ""
-  # "defaultdb"
-  dbName: ""
+
+# "tenant-1-exoscale-281607c5-270f-47aa-b92e-042fb1218654.j.aivencloud.com"
+envDbHost: ""
+# "21699"
+envDbPort: ""
+# "tenant-1"
+envDbUser: ""
+# "AVNS_UzVmkirWWB6rs-e9W4N"
+envDbPass: ""
+# "defaultdb"
+envDbName: ""
 
 # service:
 #   type: ClusterIP
