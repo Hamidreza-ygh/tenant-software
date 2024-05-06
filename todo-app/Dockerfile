@@ -6,7 +6,8 @@ FROM node:alpine
 WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json into the image
-COPY package*.json ./
+COPY package.json ./
+COPY package-lock.json ./
 
 # Install the application dependencies inside the Docker image
 RUN npm install
