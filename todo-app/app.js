@@ -21,14 +21,14 @@ var routes = require('./app/controllers/routes');
 // const { connect } = require("./app/config/connection");
 
 var app = express();
+app.use(cors());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-app.use(cors());
 
 connection.connect();
 // ConnectoToDatabase.connect();
 // ConnectoToDatabase.init();
-routes.configure(app);
+routes.configure(app, connection);
 
 var server = app.listen(8000, function(){
   console.log('Server listening on port ' + server.address().port);
