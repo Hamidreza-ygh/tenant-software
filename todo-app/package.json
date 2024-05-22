@@ -19,6 +19,7 @@
   "homepage": "https://github.com/lijasminej/todo-app#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.14.0",
     "mysql2": "^3.9.7"

@@ -1,4 +1,5 @@
 require("dotenv").config();
+const cors = require("cors");
 var ConnectoToDatabase = require('./app/config/connection');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -22,6 +23,7 @@ var routes = require('./app/controllers/routes');
 var app = express();
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+app.use(cors());
 
 connection.connect();
 // ConnectoToDatabase.connect();
