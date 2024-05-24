@@ -12,6 +12,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: todo-app
+                name: tenant-todo-app
                 port:
                   number: 8000
