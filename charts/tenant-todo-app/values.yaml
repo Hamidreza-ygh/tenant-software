@@ -20,6 +20,12 @@ envDbPass: ""
 # "defaultdb"
 envDbName: ""
 
+ingress:
+  name: tenant-todo-app
+  host:
+    path: /
+   
+
 # service:
 #   type: ClusterIP
 #   port: 80
