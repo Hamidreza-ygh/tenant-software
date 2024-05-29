@@ -2,7 +2,7 @@ require("dotenv").config();
 const cors = require("cors");
 var ConnectoToDatabase = require('./app/config/connection');
 var express = require('express');
-var bodyParser = require('body-parser');
+// var bodyParser = require('body-parser');
 
 // var ConnectoToDatabase = require('./app/config/connection');
 
@@ -27,8 +27,8 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(bodyParser.json());
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
 
 connection.connect();
 // ConnectoToDatabase.connect();
