@@ -1,14 +1,27 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name:  "{{ .Values.ingress.middleware.name }}"
+spec:
+  forwardAuth:
+    address: "{{ .Values.ingress.middleware.authServer }}"
+    trustForwardHeader: true
+    authResponseHeaders:
+      - "X-Auth-User"
+
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: "{{ .Values.ingress.name }}"
+  annotations:
+    traefik.ingress.kubernetes.io/router.middlewares: "{{ .Values.ingress.name }}-{{ .Values.ingress.middleware.name }}@kubernetescrd"
 spec:
   rules:
-    - host: tenant.tenantodo.life
+    - host: "{{ .Values.ingress.name }}.tenantodo.life"
       http:
         paths:
-          - path: "{{ .Values.ingress.host.path }}"
+          - path: "/"
             pathType: Prefix
             backend:
               service:

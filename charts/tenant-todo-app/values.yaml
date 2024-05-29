@@ -21,6 +21,9 @@ envDbPass: ""
 envDbName: ""
 
 ingress:
+  middleware:
+    name: tenant-auth
+    authServer: "http://api.tenantodo.life/auth"
   name: tenant-todo-app
   host:
     path: /
