@@ -26,6 +26,7 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://tenantodo.life"); // update to match the domain you will make the request from
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Allow specific methods
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept'); // Allow specific headers
+  res.header('Access-Control-Allow-Credentials', 'true'); // Allow credentials
   next();
 });
 app.use(express.urlencoded({extended:true}));
