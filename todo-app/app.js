@@ -31,13 +31,17 @@ var app = express();
 // CORS configuration
 const corsOptions = {
   origin: 'http://tenantodo.life', // Replace with your allowed origin
-  methods: ['GET', 'POST'], // Define allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Auth-User'], // Define allowed headers
-  optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
+  methods: ['GET', 'POST', 'OPTIONS'], // Ensure OPTIONS is included
+  allowedHeaders: ['Content-Type', 'Authorization'], // Include the Authorization header
+  optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
+  credentials: true // Include if you need to support credentials
 };
 
 // Use the CORS middleware with the defined options
 app.use(cors(corsOptions));
+
+// Handle preflight requests
+app.options('*', cors(corsOptions)); // Allow preflights to be handled by CORS middleware
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
