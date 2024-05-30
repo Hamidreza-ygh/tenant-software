@@ -15,7 +15,8 @@ metadata:
   name:  "{{ .Values.ingress.middleware.name }}"
 spec:
   headers:
-    accessControlAllowOrigin: "*"
+    accessControlAllowOriginList:
+      - "http://tenantodo.life"
     accessControlAllowMethods:
       - "GET"
       - "POST"
