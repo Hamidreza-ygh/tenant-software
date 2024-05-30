@@ -22,12 +22,22 @@ var routes = require('./app/controllers/routes');
 
 var app = express();
 // app.use(cors());
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://tenantodo.life"); // update to match the domain you will make the request from
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Allow specific methods
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, X-Auth-User'); // Allow specific headers
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "http://tenantodo.life"); // update to match the domain you will make the request from
+//   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Allow specific methods
+//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, X-Auth-User'); // Allow specific headers
+//   next();
+// });
+// CORS configuration
+const corsOptions = {
+  origin: 'http://tenantodo.life', // Replace with your allowed origin
+  methods: ['GET', 'POST'], // Define allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Auth-User'], // Define allowed headers
+  optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+// Use the CORS middleware with the defined options
+app.use(cors(corsOptions));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
