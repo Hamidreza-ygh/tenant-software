@@ -14,21 +14,6 @@ kind: Middleware
 metadata:
   name:  "{{ .Values.ingress.middleware.name }}"
 spec:
-  headers:
-    accessControlAllowOriginList:
-      - "http://tenantodo.life"
-    accessControlAllowMethods:
-      - "GET"
-      - "POST"
-      - "DELETE"
-      - "OPTIONS"
-    accessControlAllowHeaders:
-      - "Content-Type"
-      - "Authorization"
-    accessControlExposeHeaders:
-      - "Authorization"
-    accessControlMaxAge: 100
-    addVaryHeader: true
   forwardAuth:
     address: "{{ .Values.ingress.middleware.authServer }}"
     trustForwardHeader: true
